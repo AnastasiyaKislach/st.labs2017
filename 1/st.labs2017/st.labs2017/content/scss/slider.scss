@@ -1,0 +1,62 @@
+﻿@import "variables.scss";
+
+$border-color: #D9D9D9;
+
+.slider__content {
+    padding-bottom: 60px;
+    border-bottom: 1px solid $border-color;
+}
+
+.slider__header {
+    padding: 40px;
+}
+
+.slider__arrow, .slider__line {
+    float: left;
+}
+
+.slider__line--left {
+    width: 46%;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.slider__line--right {
+    width: 46%;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.slider__arrow--right {
+    margin-left: 5px;
+}
+
+.slider__arrow--left {
+    margin-right: 5px;
+}
+
+.line__img {
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+.slider__list {
+    padding: 40px 0;
+    width: 100%;
+    display: table;
+}
+
+.slider-list__item {
+    display: table-cell;
+    width: 25%;
+    padding-right: 30px;
+
+    &:last-child {
+        padding-right: 0;
+    }
+}
+
+.slider__button {
+    text-align: center;
+}
+

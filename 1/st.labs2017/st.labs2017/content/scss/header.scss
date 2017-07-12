@@ -1,0 +1,41 @@
+﻿@import "variables.scss";
+
+.page__header {
+    display: block;
+    padding: 20px 0;
+
+
+    &::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
+.header__logo {
+    float: left;
+}
+
+.header__navbar {
+    float: right;
+    margin: 5px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.header__link {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 18px;
+    font-family: 'SourceSansPro-Bold';
+
+    &:hover {
+        color: $hover-link;
+    }
+
+    &--active {
+        color: $secondary-color;
+        background: url('../../Images/menu-arrow.png') no-repeat;
+        background-position: top center;
+    }
+}
