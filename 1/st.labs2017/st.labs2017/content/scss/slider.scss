@@ -2,7 +2,7 @@
 
 $border-color: #D9D9D9;
 
-.slider-wrapper {
+.slider__content {
     padding-bottom: 60px;
     border-bottom: 1px solid $border-color;
 }
@@ -40,27 +40,23 @@ $border-color: #D9D9D9;
     padding-bottom: 5px;
 }
 
-
-.slider-button-wrapper {
-    text-align: center;
-}
-
-.slider-list-wrapper {
-    padding-top: 45px;
-    padding-bottom: 40px;
-}
-
-.slider-list {
+.slider__list {
+    padding: 40px 0;
     width: 100%;
     display: table;
+}
 
-    .slider-list__item {
-        display: table-cell;
-        width: 25%;
-        padding-right: 30px;
-    }
+.slider-list__item {
+    display: table-cell;
+    width: 25%;
+    padding-right: 30px;
 
-    & > .slider-list__item:last-child {
+    &:last-child {
         padding-right: 0;
     }
 }
+
+.slider__button {
+    text-align: center;
+}
+

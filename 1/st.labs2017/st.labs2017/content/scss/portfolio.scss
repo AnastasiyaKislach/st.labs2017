@@ -2,50 +2,50 @@
 
 $text-color: #AFAEAE;
 
-.portfolios {
+.portfolio-list {
     padding: 60px 0;
 }
 
-.portfolios-item-wrapper {
-    display: table-row;
+.portfolio-list__body {
+    display: table;
 }
 
 .portfolios__item:first-child {
     padding-right: 30px;
 }
 
-.portfolios__item {
+.portfolio {
     width: 50%;
     display: table-cell;
     padding-bottom: 30px;
-
-    .title {
-        font-size: 26px;
-    }
-
-    .text {
-        font-size: 14px;
-        color: $text-color;
-        overflow: hidden;
-        line-height: 25px;
-    }
 }
 
-.portfolio-image-wrapper {
+.portfolio__title--small {
+    font-size: 26px;
+}
+
+.portfolio__text--small {
+    font-size: 14px;
+    color: $text-color;
+    overflow: hidden;
+    line-height: 25px;
+}
+
+.portfolio__image {
     float: left;
     padding-top: 10px;
     padding-right: 30px;
     width: 100px;
 }
 
-.portfolio__image {
+.portfolio-img {
     display: block;
     width: 100%;
     height: auto;
     border-radius: 6px;
 }
 
-.portfolio-title-wrapper {
+.portfolio__title {
     padding-bottom: 10px;
 }
 

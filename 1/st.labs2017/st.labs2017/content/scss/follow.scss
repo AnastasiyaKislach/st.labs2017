@@ -23,23 +23,20 @@ $follow-text-color: #AFAEAE;
     float: left;
 }
 
-.follow-image-wrapper {
+.follow__button {
     float: left;
     padding: 20px 20px 20px 0;
 }
 
-.follow-text-wrapper {
+.follow__text-content {
     padding: 30px;
 }
 
 .follow__text {
+    font-size: 14px;
+    color: $follow-text-color;
+}
 
-    .text {
-        font-size: 14px;
-        color: $follow-text-color;
-    }
-
-    .title {
-        font-size: 18px;
-    }
+.follow__title {
+    font-size: 18px;
 }

@@ -1,22 +1,20 @@
 ﻿@import "variables.scss";
 
-$form-color: #597276;
-
 .sign-up {
     background: $primary-color;
 }
 
 .sign-up__header {
     padding: 40px;
-    border-bottom: 2px solid $form-color;
+    border-bottom: 2px solid $signup-form-color;
+}
 
-    .title, .sub-title {
-        color: #fff;
-    }
+.sign-up__title, .sign-up__sub-title {
+    color: #fff;
 }
 
 .sign-up__content {
-    display: table-row;
+    display: table;
 }
 
 .sign-up-wrapper:first-child {
@@ -32,59 +30,52 @@ $form-color: #597276;
 
 .sign-up__introduction {
     margin-bottom: 30px;
-
-    .text {
-        color: #fff;
-        font-size: 14px;
-    }
-
-    .title {
-        color: #fff;
-        font-size: 18px;
-    }
 }
 
-.introduction-img {
+.introduction__title {
+    color: #fff;
+    font-size: 18px;
+}
+
+.introduction__text {
+    color: #fff;
+    font-size: 14px;
+}
+
+.introduction__img {
     float: left;
     padding-right: 20px;
 }
 
 .sign-up__input {
-    background-color: $form-color;
+    background-color: $signup-form-color;
     border: none;
     width: 80%;
-    border-radius: 3px;
+    border-radius: 5px;
     line-height: 35px;
     margin-right: 10px;
 }
 
-
-.button-third {
-    background-color: $form-color;
-
-    &:hover {
-        background-color: #B5C7C9;
-    }
-}
-
 .sign-up__twit-message {
-    background: $form-color;
+    background: $signup-form-color;
     padding: 25px;
     border-radius: 5px;
+}
 
-    .twit-message__image {
-        float: left;
-        padding-right: 25px;
-        padding-top: 5px;
-    }
+.twit-message__image {
+    float: left;
+    padding-right: 25px;
+    padding-top: 5px;
+}
 
-    .twit-message__text {
-        overflow: hidden;
+.twit-message__text {
+    overflow: hidden;
+    color: $tertiary-color;
+    font-size: 15px;
+    line-height: 20px;
+}
 
-        .text {
-            color: $third-color;
-            font-size: 15px;
-            line-height: 20px;
-        }
-    }
+.twit-message__login {
+    text-decoration: underline;
+    color: #fff;
 }

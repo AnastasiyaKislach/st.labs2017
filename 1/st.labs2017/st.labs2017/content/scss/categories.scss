@@ -6,7 +6,7 @@ $text-color: #AFAEAE;
     padding: 40px;
 }
 
-.categories__list {
+.categories__content {
     background-color: $background-color;
 }
 
@@ -18,21 +18,12 @@ $text-color: #AFAEAE;
     float: left;
     box-sizing: border-box;
 
-    .title {
-        font-size: 26px;
-    }
-
-    .text {
-        color: $text-color;
-        padding: 0 35px;
-    }
-}
-
-.categories-inner-list {
     &:last-child {
         border: none;
     }
+}
 
+.categories__list {
     &::after {
         content: '';
         display: block;
@@ -47,12 +38,21 @@ $text-color: #AFAEAE;
 
 .category__title {
     padding: 25px 0;
+
+    &--small {
+        font-size: 26px;
+    }
 }
 
 .category__text {
     padding: 0 35px;
     text-align: center;
+
+    &--grey {
+        color: $text-color;
+    }
 }
+
 
 .category__button {
     padding-top: 25px;

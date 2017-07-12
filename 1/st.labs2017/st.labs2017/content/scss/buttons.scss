@@ -10,30 +10,34 @@
     font-family: 'SourceSansPro-Black';
     text-align: center;
 
-    .button-lg {
-        padding: 12px 24px;
-    }
-}
+    &--primary {
+        background-color: $primary-color;
 
-.button-primary {
-    background-color: $primary-color;
+        &:hover {
+            background-color: #3D4E51;
+        }
+    }
+
+    &--secondary {
+        background-color: $secondary-color;
+
+        &:hover {
+            background-color: $hover-link;
+        }
+    }
+
+    &--tertiary {
+    background-color: $signup-form-color;
 
     &:hover {
-        background-color: #3D4E51;
+        background-color: #B5C7C9;
     }
 }
 
-.button-secondary {
-    background-color: $secondary-color;
-
-    &:hover {
-        background-color: $hover-link;
+    &--lg {
+        font-size: 18px;
+        font-family: 'SourceSansPro-Bold';
     }
-}
-
-.button-lg {
-    font-size: 18px;
-    font-family: 'SourceSansPro-Bold';
 }
 
 .button-iconic {
@@ -45,20 +49,20 @@
     border-radius: 50%;
     background-position: center;
     background-repeat: no-repeat;
-}
 
-.button-iconic-facebook {
-    background-image: url('../../Images/facebook.png');
-}
+    &--facebook {
+        background-image: url('../../Images/facebook.png');
+    }
 
-.button-iconic-linkedIn {
-    background-image: url('../../Images/in.png');
-}
+    &--linkedIn {
+        background-image: url('../../Images/in.png');
+    }
 
-.button-iconic-google {
-    background-image: url('../../Images/google-plus.png');
-}
+    &--google {
+        background-image: url('../../Images/google-plus.png');
+    }
 
-.button-iconic-arrow-down {
-    background-image: url('../../Images/arrow-down.png');
+    &--arrow-down {
+        background-image: url('../../Images/arrow-down.png');
+    }
 }

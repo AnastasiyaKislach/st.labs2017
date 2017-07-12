@@ -1,6 +1,6 @@
 ﻿@import "variables.scss";
 
-.header {
+.page__header {
     display: block;
     padding: 20px 0;
 
@@ -18,31 +18,22 @@
 
 .header__navbar {
     float: right;
-}
-
-.menu {
     margin: 5px 0 0;
     padding: 0;
     list-style: none;
 }
 
-.menu__item {
+.header__link {
     display: inline-block;
+    padding: 15px 25px;
+    font-size: 18px;
+    font-family: 'SourceSansPro-Bold';
 
-    > a {
-        display: inline-block;
-        padding: 15px 25px;
-        font-size: 18px;
-        font-family: 'SourceSansPro-Bold';
-
-        &:hover {
-            color: $hover-link;
-        }
+    &:hover {
+        color: $hover-link;
     }
-}
 
-.menu__item--active {
-    > a {
+    &--active {
         color: $secondary-color;
         background: url('../../Images/menu-arrow.png') no-repeat;
         background-position: top center;
