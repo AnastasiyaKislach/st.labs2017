@@ -1,0 +1,16 @@
+﻿@import "variables.scss";
+
+.page__footer {
+    background: $primary-color;
+}
+
+
+.footer__copyright {
+    padding: 35px;
+    text-align: center;
+}
+
+.footer__text {
+    color: #fff;
+    font-size: 14px;
+}

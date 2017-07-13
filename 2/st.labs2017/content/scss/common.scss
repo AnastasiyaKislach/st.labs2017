@@ -1,0 +1,45 @@
+﻿@import 'variables.scss';
+
+body {
+    padding: 0;
+    margin: 0;
+    color: $primary-color;
+    font-family: 'SourceSansPro-Regular';
+}
+
+a {
+    color: $primary-color;
+    text-decoration: none;
+}
+
+.container {
+    width: $content-width;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 42px;
+    font-family: 'SourceSansPro-Bold';
+}
+
+.title {
+    text-align: center;
+    font-size: 36px;
+    font-family: 'SourceSansPro-Bold';
+}
+
+.sub-title {
+    text-align: center;
+    font-size: 28px;
+    font-family: 'SourceSansPro-Light';
+}
+
+.text {
+    font-size: 16px;
+    font-family: 'SourceSansPro-Regular';
+}
+
+.no-align {
+    text-align: initial;
+}
