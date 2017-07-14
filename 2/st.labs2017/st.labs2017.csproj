@@ -141,6 +141,7 @@
     <Content Include="content\scss\signup.scss" />
     <Content Include="content\scss\follow.scss" />
     <Content Include="content\scss\footer.scss" />
+    <Content Include="content\scss\responsive.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

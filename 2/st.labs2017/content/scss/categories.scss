@@ -10,9 +10,11 @@ $text-color: #AFAEAE;
     background-color: $background-color;
 }
 
+.categories__list-item {
+    width: 25%;
+}
 
 .category {
-    width: 25%;
     padding: 60px 0;
     border-right: 1px solid $border-category-color;
     float: left;

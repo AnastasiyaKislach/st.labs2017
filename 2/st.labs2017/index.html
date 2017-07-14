@@ -3,6 +3,7 @@
 <head>
     <title>Site Name</title>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1">
     <link href="/content/css/main.css" rel="stylesheet" />
 </head>
 <body class="page">
@@ -53,7 +54,7 @@
             </div>
             <div class="categories__content">
                 <div class="categories__list container">
-                    <div class="category">
+                    <div class="category categories__list-item">
                         <div class="category__image">
                             <img src="Images/pc.png" />
                         </div>
@@ -68,7 +69,7 @@
                             <a href="#" class="button button--primary">More</a>
                         </div>
                     </div>
-                    <div class="category">
+                    <div class="category categories__list-item">
                         <div class="category__image">
                             <img src="Images/flask.png" />
                         </div>
@@ -83,7 +84,7 @@
                             <a href="#" class="button button--primary">More</a>
                         </div>
                     </div>
-                    <div class="category">
+                    <div class="category categories__list-item">
                         <div class="category__image">
                             <img src="Images/gears.png" />
                         </div>
@@ -99,7 +100,7 @@
                             <a href="#" class="button button--primary">More</a>
                         </div>
                     </div>
-                    <div class="category">
+                    <div class="category categories__list-item">
                         <div class="category__image">
                             <img src="Images/loudspeaker.png" />
                         </div>
@@ -134,7 +135,7 @@
                 <div class="slider__content">
                     <div class="slider__nav">
                         <div class="slider__line slider__line--left">
-                            <img src="Images/line1.png" class="line__img" />
+                            <hr />
                         </div>
                         <div class="slider__arrow slider__arrow--left">
                             <img src="Images/arrow-left.png" />
@@ -143,21 +144,21 @@
                             <img src="Images/arrow-right.png" />
                         </div>
                         <div class="slider__line slider__line--right">
-                            <img src="Images/line1.png" class="line__img" />
+                            <hr />
                         </div>
                     </div>
                     <div class="slider__list">
                         <div class="slider-list__item">
-                            <img src="Images/slider1.png" />
+                            <img src="Images/slider1.png" class="slider__image" />
                         </div>
                         <div class="slider-list__item">
-                            <img src="Images/slider2.png" />
+                            <img src="Images/slider2.png" class="slider__image" />
                         </div>
                         <div class="slider-list__item">
-                            <img src="Images/slider3.png" />
+                            <img src="Images/slider3.png" class="slider__image" />
                         </div>
                         <div class="slider-list__item">
-                            <img src="Images/slider4.png" />
+                            <img src="Images/slider4.png" class="slider__image" />
                         </div>
                     </div>
                     <div class="slider__button">
@@ -218,12 +219,14 @@
                         Donec quis dui dolor
                     </div>
                     <div class="portfolio__text text portfolio__text--small">
-                        Sumitris dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
-                        <a class="portfolio__link" href="#"> + more</a>
+                        Sumitris dapibus, neque id cursus faucibus,
+                        tortor neque egestas augue, eu vulputate magna
+                        eros eu erat. Aliquam erat volutpat. Nam dui mi,
+                        tincidunt quis, accumsan porttitor, facilisis luctus,
+                        metus <a class="portfolio__link" href="#">+ more</a>
                     </div>
                 </div>
             </div>
-
         </section>
         <!-- END PORTFOLIO -->
         <!-- START SIGN UP BLOCK -->
@@ -237,36 +240,35 @@
                         Donec odio uisque volutpat mattis eros ullam malesuada erat ut turpis.
                     </div>
                 </div>
-                <div class="sign-up__content">
-                    <div class="sign-up-wrapper">
-                        <div class="sign-up__introduction">
-                            <div class="introduction__img">
-                                <img src="Images/envelop.png" />
-                            </div>
-                            <div class="title no-align introduction__title">
-                                Subscribe Our Newsletter
-                            </div>
-                            <div class="text introduction__text">
-                                via email on how to grow your business online
-                            </div>
+                <div class="sign-up-wrapper">
+                    <div class="sign-up__introduction">
+                        <div class="introduction__img">
+                            <img src="Images/envelop.png" />
                         </div>
-                        <form class="sign-up__form">
-                            <input type="text" class="sign-up__input" />
-                            <input type="submit" value="Sign up" class="button button--tertiary" />
-                        </form>
+                        <div class="title no-align introduction__title">
+                            Subscribe Our Newsletter
+                        </div>
+                        <div class="text introduction__text">
+                            via email on how to grow your business online
+                        </div>
                     </div>
-                    <div class="sign-up-wrapper">
-                        <div class="sign-up__twit-message">
-                            <div class="twit-message__image">
-                                <img src="Images/twitter.png" />
-                            </div>
-                            <div class="twit-message__text text">
-                                Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat
-                                <span class="twit-message__login">@johndoe</span>
-                            </div>
+                    <form class="sign-up__form">
+                        <input type="text" class="sign-up__input" />
+                        <input type="submit" value="Sign up" class="button button--tertiary" />
+                    </form>
+                </div>
+                <div class="sign-up-wrapper">
+                    <div class="sign-up__twit-message">
+                        <div class="twit-message__image">
+                            <img src="Images/twitter.png" />
+                        </div>
+                        <div class="twit-message__text text">
+                            Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat
+                            <span class="twit-message__login">@johndoe</span>
                         </div>
                     </div>
                 </div>
+                <div class="clearfix"></div>
             </div>
         </section>
         <!-- END SIGN UP BLOCK -->

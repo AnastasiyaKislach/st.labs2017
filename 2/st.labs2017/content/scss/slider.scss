@@ -48,15 +48,18 @@ $border-color: #D9D9D9;
 
 .slider-list__item {
     display: table-cell;
-    width: 25%;
+    max-width: 25%;
     padding-right: 30px;
 
-    &:last-child {
+    /*&:last-child {
         padding-right: 0;
-    }
+    }*/
 }
 
 .slider__button {
     text-align: center;
 }
 
+.slider__image{
+    max-width: 100%;
+}

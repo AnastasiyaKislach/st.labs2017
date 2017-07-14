@@ -13,17 +13,13 @@
     color: #fff;
 }
 
-.sign-up__content {
-    display: table;
-}
-
 .sign-up-wrapper:first-child {
     padding-right: 30px;
 }
 
 .sign-up-wrapper {
     width: 50%;
-    display: table-cell;
+    float: left;
     padding: 40px 0 50px;
     vertical-align: top;
 }
