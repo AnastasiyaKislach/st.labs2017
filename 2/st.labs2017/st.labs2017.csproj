@@ -94,6 +94,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\nav.png" />
+    <Content Include="Images\scss-menu-icon.png" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -141,7 +143,6 @@
     <Content Include="content\scss\signup.scss" />
     <Content Include="content\scss\follow.scss" />
     <Content Include="content\scss\footer.scss" />
-    <Content Include="content\scss\responsive.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -177,7 +178,6 @@
     <Content Include="Images\men1.png" />
     <Content Include="Images\men2.png" />
     <Content Include="Images\menu-arrow.png" />
-    <Content Include="Images\nav.png" />
     <Content Include="Images\pc.png" />
     <Content Include="Images\round.png" />
     <Content Include="Images\slider1.png" />
