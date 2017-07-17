@@ -27,12 +27,12 @@
     }
 
     &--tertiary {
-    background-color: $signup-form-color;
+        background-color: $signup-form-color;
 
-    &:hover {
-        background-color: #B5C7C9;
+        &:hover {
+            background-color: #B5C7C9;
+        }
     }
-}
 
     &--lg {
         font-size: 18px;
@@ -64,5 +64,19 @@
 
     &--arrow-down {
         background-image: url('../../Images/arrow-down.png');
+    }
+}
+
+@media(max-width: $display-width-md) {
+    .button-iconic {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media(max-width: $display-width-sm) {
+    .button-iconic {
+        width: 50px;
+        height: 50px;
     }
 }
