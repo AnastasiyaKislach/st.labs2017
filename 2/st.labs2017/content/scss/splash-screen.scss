@@ -1,4 +1,6 @@
-﻿$splash-screen-text-color: #FFF;
+﻿@import 'variables.scss';
+
+$splash-screen-text-color: #FFF;
 
 .splash-screen {
     padding: 130px 0;
@@ -29,4 +31,53 @@
 .splash-screen__arrow {
     margin-top: 40px;
     text-align: center;
+}
+
+@media(max-width: $display-width-lg) {
+    .splash-screen {
+        padding: 100px 0;
+    }
+}
+
+@media(max-width: $display-width-md) {
+    .splash-screen {
+        padding: 80px 0;
+    }
+
+    .splash-screen__title {
+        font-size: 36px;
+    }
+
+    .splash-screen__text {
+        font-size: 14px;
+    }
+}
+
+@media(max-width: $display-width-sm) {
+    .splash-screen {
+        padding: 60px 0;
+    }
+
+    .splash-screen__title {
+        font-size: 32px;
+    }
+
+    .splash-screen__text {
+        font-size: 13px;
+        line-height: 20px;
+    }
+}
+
+@media(max-width: $display-width-xs) {
+    .splash-screen {
+        padding: 40px 0;
+    }
+
+    .splash-screen__title {
+        font-size: 26px;
+    }
+
+    .splash-screen__text {
+        font-size: 12px;
+    }
 }
