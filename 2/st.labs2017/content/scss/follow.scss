@@ -4,13 +4,12 @@ $form-color: #597276;
 $follow-text-color: #AFAEAE;
 
 .follow {
+    padding: 30px 0;
     background: #fff;
 }
 
 
 .follow__list {
-    padding: 30px 0;
-
     &::after {
         content: '';
         display: block;
@@ -39,4 +38,41 @@ $follow-text-color: #AFAEAE;
 
 .follow__title {
     font-size: 18px;
+}
+
+@media(max-width: $display-width-lg) {
+}
+
+@media(max-width: $display-width-md) {
+    .follow__item {
+        text-align: center;
+    }
+
+    .follow__button {
+        float: none;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .follow__text-content {
+        padding: 0 10px;
+    }
+
+    .follow__title {
+        text-align: center;
+    }
+}
+
+@media(max-width: $display-width-sm) {
+    .follow__button {
+        margin: 10px;
+    }
+}
+
+@media(max-width: $display-width-xs) {
+    .follow__item {
+        float: none;
+        width: 100%;
+        margin-bottom: 30px;
+    }
 }
