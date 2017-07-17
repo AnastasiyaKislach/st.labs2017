@@ -4,6 +4,10 @@
     background: $primary-color;
 }
 
+.sign-up__container {
+    padding-bottom: 50px;
+}
+
 .sign-up__header {
     padding: 40px;
     border-bottom: 2px solid $signup-form-color;
@@ -20,8 +24,8 @@
 .sign-up-wrapper {
     width: 50%;
     float: left;
-    padding: 40px 0 50px;
     vertical-align: top;
+    margin-top: 40px;
 }
 
 .sign-up__introduction {
@@ -46,10 +50,14 @@
 .sign-up__input {
     background-color: $signup-form-color;
     border: none;
-    width: 80%;
+    width: 100%;
     border-radius: 5px;
     line-height: 35px;
-    margin-right: 10px;
+    margin-right: 100px;
+}
+
+.sign-up__button {
+    float: right;
 }
 
 .sign-up__twit-message {
@@ -74,4 +82,27 @@
 .twit-message__login {
     text-decoration: underline;
     color: #fff;
+}
+
+@media(max-width: $display-width-lg) {
+}
+
+@media(max-width: $display-width-md) {
+    .sign-up-wrapper {
+        width: 100%;
+        padding: 0;
+        float: none;
+    }
+}
+
+@media(max-width: $display-width-sm) {
+    .sign-up__header {
+        padding: 30px 0;
+    }
+}
+
+@media(max-width: $display-width-xs) {
+    .sign-up__header {
+        padding: 20px 0;
+    }
 }
