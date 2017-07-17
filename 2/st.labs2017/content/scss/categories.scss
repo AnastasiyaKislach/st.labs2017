@@ -1,4 +1,6 @@
-﻿$background-color: #F6F6F6;
+﻿@import 'variables.scss';
+
+$background-color: #F6F6F6;
 $border-category-color: #CFCFCF;
 $text-color: #AFAEAE;
 
@@ -10,32 +12,29 @@ $text-color: #AFAEAE;
     background-color: $background-color;
 }
 
-.categories__list-item {
-    width: 25%;
+.categories__list {
+    display: table;
+    width: 100%;
+    text-align: center;
 }
 
 .category {
+    display: table-cell;
     padding: 60px 0;
     border-right: 1px solid $border-category-color;
-    float: left;
     box-sizing: border-box;
+    vertical-align: top;
 
     &:last-child {
         border: none;
     }
 }
 
-.categories__list {
-    &::after {
-        content: '';
-        display: block;
-        clear: both;
-    }
+.categories__list-item {
+    width: 25%;
 }
 
-
 .category__image {
-    text-align: center;
 }
 
 .category__title {
@@ -48,15 +47,86 @@ $text-color: #AFAEAE;
 
 .category__text {
     padding: 0 35px;
-    text-align: center;
 
     &--grey {
         color: $text-color;
     }
 }
 
-
 .category__button {
     padding-top: 25px;
-    text-align: center;
+}
+
+@media(max-width: $display-width-lg) {
+    .category__image img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .category {
+        padding: 40px;
+    }
+
+    .category__text {
+        padding: 0;
+    }
+}
+
+@media(max-width: $display-width-md) {
+
+    .category {
+        padding: 40px 20px;
+    }
+
+    .category__image img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .category__title--small {
+        font-size: 20px;
+    }
+
+    .category__title {
+        padding: 15px 0;
+    }
+}
+
+@media(max-width: $display-width-sm) {
+    .categories__header {
+        padding: 30px;
+    }
+
+    .category {
+        display: inline-block;
+        margin: 20px 0;
+
+        &:nth-child(even) {
+            border: none;
+        }
+    }
+
+    .categories__list-item {
+        width: 50%;
+    }
+}
+
+@media(max-width: $display-width-xs) {
+    .categories__header {
+        padding: 20px;
+    }
+
+    .categories__list {
+        display: block;
+    }
+
+    .category {
+        display: block;
+        border: none;
+        margin: 0;
+    }
+
+    .categories__list-item {
+        width: 100%;
+    }
 }
