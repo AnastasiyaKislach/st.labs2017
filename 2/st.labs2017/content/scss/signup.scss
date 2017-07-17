@@ -17,8 +17,12 @@
     color: #fff;
 }
 
-.sign-up-wrapper:first-child {
-    padding-right: 30px;
+.sign-up__content {
+
+}
+
+.sign-up__form {
+    display: flex;
 }
 
 .sign-up-wrapper {
@@ -26,6 +30,11 @@
     float: left;
     vertical-align: top;
     margin-top: 40px;
+    box-sizing: border-box;
+
+    &:first-child {
+        padding-right: 30px;
+    }
 }
 
 .sign-up__introduction {
@@ -57,6 +66,7 @@
 
 .sign-up__button {
     float: right;
+    margin-left: 10px;
 }
 
 .sign-up__twit-message {
