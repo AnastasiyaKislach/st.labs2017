@@ -11,46 +11,48 @@ $border-color: #D9D9D9;
     padding: 40px;
 }
 
-.slider__arrow, .slider__line {
-    float: left;
-}
-
-.slider__line--left {
-    width: 46%;
-    display: inline-block;
-    margin-right: 20px;
-}
-
-.slider__line--right {
-    width: 46%;
-    display: inline-block;
-    margin-left: 20px;
-}
-
-.slider__arrow--right {
-    margin-left: 5px;
-}
-
-.slider__arrow--left {
-    margin-right: 5px;
-}
-
-.line__img {
+.slider__nav {
+    display: table;
     width: 100%;
-    padding-bottom: 5px;
+}
+
+.slider__arrow, .slider__line {
+    display: table-cell;
+}
+
+.slider__arrow {
+    width: 100px;
+    text-align: center;
+
+    a {
+        margin: 0 5px;
+    }
+}
+
+.slider__line {
+    hr {
+        width: 100%;
+    }
 }
 
 .slider__list {
-    padding: 40px 0;
-    width: 100%;
     display: table;
+    width: 100%;
+    margin: 40px 0;
+
+    &--tablet {
+        display: none;
+    }
+
+    &--mobile {
+        display: none;
+    }
 }
 
 .slider-list__item {
     display: table-cell;
-    max-width: 25%;
-    padding-right: 30px;
-
+    width: 25%;
+    padding: 15px;
     /*&:last-child {
         padding-right: 0;
     }*/
@@ -60,6 +62,65 @@ $border-color: #D9D9D9;
     text-align: center;
 }
 
-.slider__image{
-    max-width: 100%;
+.slider__image {
+    width: 100%;
+}
+
+@media(max-width: $display-width-lg) {
+    .slider-list__item {
+        padding: 10px;
+    }
+}
+
+@media(max-width: $display-width-md) {
+    .slider-list__item {
+        padding: 5px;
+    }
+}
+
+@media(max-width: $display-width-sm) {
+    .slider__header {
+        padding: 30px 10px;
+    }
+
+    .slider__list {
+        &--desktop {
+            display: none;
+        }
+
+        &--tablet {
+            display: table;
+        }
+    }
+
+    .slider-list__item {
+        width: 50%;
+        padding: 10px;
+    }
+}
+
+@media(max-width: $display-width-xs) {
+    .slider__header {
+        padding: 20px 0;
+    }
+
+    .slider__list {
+        &--tablet {
+            display: none;
+        }
+
+        &--mobile {
+            display: block;
+        }
+    }
+
+    .slider-list__item {
+        display: block;
+        width: 100%;
+        padding: 0;
+    }
+
+    .slider__content {
+        padding-bottom: 45px;
+    }
 }
