@@ -18,7 +18,6 @@
 }
 
 .sign-up__content {
-
 }
 
 .sign-up__form {
@@ -101,6 +100,10 @@
         width: 100%;
         padding: 0;
         float: none;
+    }
+
+    .sign-up-wrapper:first-child {
+        padding-right: 0;
     }
 }
 
