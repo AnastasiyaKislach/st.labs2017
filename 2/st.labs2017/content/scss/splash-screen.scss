@@ -1,0 +1,83 @@
+﻿@import 'variables.scss';
+
+$splash-screen-text-color: #FFF;
+
+.splash-screen {
+    padding: 130px 0;
+    background-image: url('../../Images/bcgrd.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.splash-screen__title {
+    color: $splash-screen-text-color;
+    font-size: 42px;
+    font-family: 'PT_Sans-Web-Bold';
+    text-decoration: underline;
+    letter-spacing: 2px;
+    white-space: pre-line;
+}
+
+.splash-screen__text {
+    color: $splash-screen-text-color;
+    font-size: 17px;
+    font-family: 'Lato-Regular';
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    white-space: pre-line;
+    line-height: 30px;
+}
+
+.splash-screen__arrow {
+    margin-top: 40px;
+    text-align: center;
+}
+
+@media(max-width: $display-width-lg) {
+    .splash-screen {
+        padding: 100px 0;
+    }
+}
+
+@media(max-width: $display-width-md) {
+    .splash-screen {
+        padding: 80px 0;
+    }
+
+    .splash-screen__title {
+        font-size: 36px;
+    }
+
+    .splash-screen__text {
+        font-size: 14px;
+    }
+}
+
+@media(max-width: $display-width-sm) {
+    .splash-screen {
+        padding: 60px 0;
+    }
+
+    .splash-screen__title {
+        font-size: 32px;
+    }
+
+    .splash-screen__text {
+        font-size: 13px;
+        line-height: 20px;
+    }
+}
+
+@media(max-width: $display-width-xs) {
+    .splash-screen {
+        padding: 40px 0;
+    }
+
+    .splash-screen__title {
+        font-size: 26px;
+    }
+
+    .splash-screen__text {
+        font-size: 12px;
+    }
+}

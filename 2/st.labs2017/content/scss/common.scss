@@ -1,0 +1,104 @@
+﻿@import 'variables.scss';
+
+body {
+    padding: 0;
+    margin: 0;
+    color: $primary-color;
+    font-family: 'SourceSansPro-Regular';
+}
+
+a {
+    color: $primary-color;
+    text-decoration: none;
+}
+
+.container {
+    width: $content-width;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.logo {
+    font-size: 42px;
+    font-family: 'SourceSansPro-Bold';
+}
+
+.title {
+    text-align: center;
+    font-size: 36px;
+    font-family: 'SourceSansPro-Bold';
+}
+
+.sub-title {
+    text-align: center;
+    font-size: 28px;
+    font-family: 'SourceSansPro-Light';
+}
+
+.text {
+    font-size: 16px;
+    font-family: 'SourceSansPro-Regular';
+}
+
+.no-align {
+    text-align: initial;
+}
+
+.clearfix {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+@media(max-width: $display-width-lg) {
+    .container {
+        width: $content-width-lg;
+    }
+
+    .title {
+        font-size: 32px;
+    }
+
+    .sub-title {
+        font-size: 24px;
+    }
+}
+
+@media(max-width: $display-width-md) {
+    .container {
+        width: $content-width-md;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .sub-title {
+        font-size: 22px;
+    }
+}
+
+@media(max-width: $display-width-sm) {
+    .container {
+        width: $content-width-sm;
+    }
+
+    .title {
+        font-size: 26px;
+    }
+
+    .sub-title {
+        font-size: 16px;
+    }
+}
+
+@media(max-width: $display-width-xs) {
+    .title {
+        font-size: 24px;
+    }
+
+    .sub-title {
+        font-size: 14px;
+    }
+}
