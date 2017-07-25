@@ -17,10 +17,15 @@
         },
         state: "stopped"
     };
-
+    console.log("4. Разработать объект представляющий собой дерево и реализовать алгоритм поиска в глубину по объекту дерево");
+    console.log("ii");
     console.log(depthFirstSearch.search(car, "car", "ii").toString());
+    console.log("st");
     console.log(depthFirstSearch.search(car, "car", "st").toString());
+    console.log("8");
     console.log(depthFirstSearch.search(car, "car", "8").toString());
+
+    console.log("\n");
 })();
 
 

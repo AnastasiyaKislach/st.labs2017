@@ -29,7 +29,7 @@
 
             var searchArr = [];
 
-            (function nodesRecurs(tree, objName, searchValue) {
+            (function nodesRecurs(tree, treeName, searchValue) {
                 for (var i in tree) {
                     if (tree.hasOwnProperty(i)) {
                         if (typeof (tree[i]) === "object") {
