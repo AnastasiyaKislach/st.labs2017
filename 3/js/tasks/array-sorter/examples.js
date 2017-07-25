@@ -10,7 +10,7 @@
         [100, -9, 2, -3, 5],
         [-1, -2, -3]
     ];
-
+    console.log("3. Разработать объект сортировщик, позволяющий производить сортировки целочисленных массивов не менее чем 4 способами ");
     for (var i = 0; i < arrays.length; i++) {
         console.log(arrays[i].toString());
         console.log("Сортировка подсчетом: ", sorter.counting(arrays[i]));
@@ -21,4 +21,5 @@
         console.log("\n");
     }
 
-})();
+    console.log("\n");
+})(); 
