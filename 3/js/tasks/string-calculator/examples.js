@@ -8,7 +8,7 @@
         "0.23 +0.6966 / 3 + 45*68 -1"
     ];
 
-
+    console.log("2. Разработать объект содержащий набор методов для выполнения функций калькулятора ");
     for (var i = 0; i < expressions.length; i++) {
         console.log(expressions[i]);
         console.log("Обратная польская запись: ",
@@ -17,5 +17,6 @@
             calculator.calculate(expressions[i]));
         console.log("\n");
     }
+    console.log("\n");
 
 })();
