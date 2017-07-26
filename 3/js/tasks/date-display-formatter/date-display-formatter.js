@@ -227,8 +227,8 @@
                 years = 0;
             }
 
-            months = Math.floor(days / 30);
-            days = days % 30;
+            months = Math.floor(days / 30,5);
+            days =  Math.floor(days % 30.5);
 
         var obj = {
             year: years,
