@@ -27,8 +27,8 @@
 
             var maxSubSum = 0, sum = 0;
 
-            for (var i = 0; i < length; i++) {
-                for (var p = i; p < length; p++) {
+            for (let i = 0; i < length; i++) {
+                for (let p = i; p < length; p++) {
                     sum += array[p];
                     if (sum > maxSubSum) {
                         maxSubSum = sum;
@@ -49,7 +49,7 @@
 
             var sum = 0;
             var maxSubSum = 0;
-            for (var i = 0; i <= length; i++) {
+            for (let i = 0; i <= length; i++) {
                 sum = sum + array[i];
                 if (sum < 0) {
                     sum = 0;
@@ -66,11 +66,11 @@
                 return NaN;
             }
 
-            var length = array.length;
+            let length = array.length;
 
             var minValue = array[0];
 
-            for (var i = 1; i < length; i++) {
+            for (let i = 1; i < length; i++) {
                 if (array[i] < minValue) {
                     minValue = array[i];
                 }
@@ -83,11 +83,11 @@
                 return NaN;
             }
 
-            var length = array.length;
+            let length = array.length;
 
             var maxValue = array[0];
 
-            for (var i = 1; i < length; i++) {
+            for (let i = 1; i < length; i++) {
                 if (array[i] > maxValue) {
                     maxValue = array[i];
                 }
@@ -100,17 +100,17 @@
                 return NaN;
             }
 
-            var length = array.length;
+            let length = array.length;
 
             array = array.sort(compare);
 
             var medium;
 
             if (length % 2 === 0) {
-                var left = length / 2 - 1, right = length / 2;
+                let left = length / 2 - 1, right = length / 2;
                 medium = ((array[left] + array[right])) / 2;
             } else {
-                var mediumIndex = Math.round(length / 2);
+                let mediumIndex = Math.round(length / 2);
                 medium = array[mediumIndex - 1];
             }
             return medium;

@@ -241,12 +241,12 @@
         };
 
         var s = (obj.year ? (obj.year + " г. ") : "")
-                   + (obj.month ? (obj.month + " мес. ") : "")
-                       + (obj.day ? (obj.day + " дн. ") : "")
-                          + (obj.hours ? (obj.hours + " ч. ") : "")
-                              + (obj.minutes ? (obj.minutes + " мин. ") : "")
-                                  + (obj.seconds ? (obj.seconds + " с. ") : "")
-                                        + (obj.milliseconds ? (obj.milliseconds + " мс. ") : "");
+                + (obj.month ? (obj.month + " мес. ") : "")
+                + (obj.day ? (obj.day + " дн. ") : "")
+                + (obj.hours ? (obj.hours + " ч. ") : "")
+                + (obj.minutes ? (obj.minutes + " мин. ") : "")
+                + (obj.seconds ? (obj.seconds + " с. ") : "")
+                + (obj.milliseconds ? (obj.milliseconds + " мс. ") : "");
         return s;
     }
 
