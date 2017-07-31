@@ -21,10 +21,19 @@
         return sum;
     }
 
-    var result = partial(add, 2);
+    function main() {
 
-    var sum = result(3, 4, 5, 6);
+        console.log("1. Partial application");
+        console.log("Sum of 2 + 3 + 4 + 5 + 6");
 
-    console.log(sum);
+        var result = partial(add, 2);
+
+        var sum = result(3, 4, 5, 6);
+
+        console.log("Result " + sum + "\n\r");
+    }
+
+    main();
+
 
 })(this);
