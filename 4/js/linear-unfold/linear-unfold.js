@@ -1,4 +1,4 @@
-﻿(function () {
+﻿(function (global) {
     "use strinct";
 
     function isEmpty(val) {
@@ -6,32 +6,46 @@
     }
 
 
-    function unfoldWith(callback, initialValue) {
-        var result = [];
+    global.unfold = function (callback, initialValue) {
+        var array = [];
 
         if (isEmpty(initialValue)) {
-            return result;
+            return array;
         }
-        while (initialValue){
-           result.push(initialValue); 
-            initialValue = callback(initialValue);
+
+        var result = callback(initialValue);
+
+        while (!result.done) {
+            array.push(result.element);
+            result = callback(result.next);
         }
-        
-        return result;
+
+        return array;
     }
 
 
 
     function decrement(initialValue) {
         return initialValue > 0
-                        ? initialValue - 1
-                            : false;
+            ? {
+                element: initialValue,
+                next: initialValue - 1
+            }
+            : { done: true };
     }
 
-    var initVal = 15;
 
-    var result = unfoldWith(decrement, initVal);
+    function main() {
 
-    console.log(result);
+        console.log("4. Linear unfold ");
+        console.log("Positive decrement sequence is starting from 15");
+        var initVal = 15;
+        var result = unfold(decrement, initVal);
 
-})();
+        console.log("Result " + result + "\n\r");
+
+    }
+
+    main();
+
+})(this);

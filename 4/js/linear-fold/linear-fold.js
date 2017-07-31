@@ -1,4 +1,4 @@
-﻿(function () {
+﻿(function (global) {
 
     "use strict";
 
@@ -6,7 +6,7 @@
         return (val === undefined || val == null) ? true : false;
     }
 
-    function foldArray(array, callback, initialValue) {
+    global.fold = function(array, callback, initialValue) {
 
         if (!(array && array.length) && isEmpty(initialValue)) {
             console.log("Пустой массив или начальное значение!", 'linear-fold.js', 7);
@@ -39,25 +39,39 @@
         return previousValue;
     }
 
-    function sum(a, b) {
+    global.add = function(a, b) {
         return a + b;
     }
 
     var array = [1, 6, 5, 4, 3, 2];
 
-    var resultSum = foldArray(array, sum, 0);
+    function main() {
 
-    console.log(resultSum);
+        console.log("3. Linear fold ");
 
-    resultSum = foldArray();
+        console.log("array = [" + array.toString() + "]");
 
-    console.log(resultSum);
+        console.log("fold array, method: add, initValue = " + 0);
+        var resultSum = fold(array, add, 0);
+        console.log("Result " + resultSum + "\n\r");
 
-    resultSum = foldArray([], sum, 7);
+        console.log("Fold without parameters ");
+        resultSum = fold();
+        console.log("Result " + resultSum + "\n\r");
 
-    console.log(resultSum);
+        console.log("fold empty array, method: add, initValue = " + 7);
+        resultSum = fold([], add, 7);
+        console.log("Result " + resultSum + "\n\r");
 
-    resultSum = foldArray([1], sum, undefined);
+        console.log("fold one element array, method: add, initValue = " + undefined);
+        resultSum = fold([1], add, undefined);
+        console.log("Result " + resultSum + "\n\r");
 
-    console.log(resultSum);
-})();
+    }
+
+    main();
+
+   
+
+   
+})(this);
