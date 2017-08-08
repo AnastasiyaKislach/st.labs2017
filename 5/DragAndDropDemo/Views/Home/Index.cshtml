@@ -1,0 +1,53 @@
+﻿<div class="container content">
+    <div class="row form-container">
+        <form class="form-horizontal" method="post" id="registrationForm" name= "registrationForm" enctype='multipart/form-data'>
+            <h4>Registration</h4>
+            <hr />
+            <div class="form-group">
+                <div class="col-md-2">
+                    <label for="login" class="control-label">Login</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" id="login" name="login" value="Stacy"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2">
+                    <label for="password" class="control-label">Password</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="password" class="form-control" id="password" name="password" value="someValue"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2">
+                    <label class="control-label" for="files">Photo</label>
+                </div>
+                <div class="col-md-10 ">
+                    <div id="draganddrop" class="draganddrop">
+                        <div> Drop your photos here </div>
+                        <input type="file" class="upload" id="files" name="files" accept="image/*" multiple />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-default" value="Register" onclick="register(registrationForm)"/>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+<div id="appModal" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Registration</h4>
+            </div>
+            <div class="modal-body">You’ve been successfully registered on the website! </div>
+            <div class="modal-footer"><button class="btn btn-default" type="button" id="myInput" data-dismiss="modal">ОК</button></div>
+        </div>
+    </div>
+</div>
