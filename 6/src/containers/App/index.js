@@ -7,7 +7,7 @@ export default class App extends Component {
     render() {
         return (
             <div className='body-content'>
-               <NavigationBar/>
+               <NavigationBar film={this.props.params.film}/>
                {this.props.children}
             </div>
         );

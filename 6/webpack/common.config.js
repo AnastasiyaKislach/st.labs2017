@@ -26,7 +26,11 @@ const common = {
     path: PATHS.build,
     filename: 'bundle.js'
   },
-
+  devServer: {
+      historyApiFallback: true,
+      contentBase: './',
+      hot: true
+  },
   resolve: {
     extensions: ['', '.jsx', '.js', '.json', '.scss'],
     modulesDirectories: ['node_modules', PATHS.app]

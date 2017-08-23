@@ -38,7 +38,7 @@ a {
 .search-group {
 }
 
-.search-input{
+.search-input {
     padding-left: 45px;
 }
 
@@ -75,7 +75,7 @@ a {
 
     i {
         margin: 5px;
-        font-size: 30px;
+        font-size: 25px;
     }
 }
 
@@ -89,6 +89,7 @@ a {
 
     img {
         height: 200px;
+        margin: 10px auto;
     }
 
     .glyphicon-chevron-left,
@@ -116,6 +117,28 @@ a {
         margin: 0 1em;
     }
 }
+
+.control-container, .image-container {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+@media (min-width: 992px) {
+    .control-container, .image-container {
+        float: left;
+    }
+
+    .control-container {
+        width: 8.33333333%;
+    }
+
+    .image-container {
+        width: 27.77777778%;
+    }
+}
+
 
 %control {
     font-size: 30px;
@@ -158,12 +181,13 @@ a {
     margin: 50px 0 20px;
     padding: 14px;
     min-height: 400px;
-    border: 1px solid #000;
+    border: 1px solid #777;
 }
 
 .comment-item {
+    width: 100%;
     display: inline-block;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #777;
     padding: 10px 0;
 }
 

@@ -1,6 +1,7 @@
 ﻿import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { ROUTING } from '../../constants/Routing'
+import {routing} from '../../actions/UserActions';
 
 export default function requireAuthentication(Component) {
 
@@ -14,13 +15,7 @@ export default function requireAuthentication(Component) {
 
         checkAuth(user) {
             if (!user.isAuthenticated) {
-                this.props.dispatch({
-                    type: ROUTING,
-                    payload: {
-                        method: 'replace',
-                        nextUrl: '/login'
-                    }
-                });
+                this.props.actions.routing();
             }
         }
 
@@ -42,5 +37,12 @@ export default function requireAuthentication(Component) {
         }
     }
 
-    return connect(mapStateToProps)(AuthenticatedComponent);
+    function mapDispatchToProps(dispatch) {
+        return {
+            actions: bindActionCreators({routing}, dispatch)
+        }
+    }
+
+
+    return connect(mapStateToProps, mapDispatchToProps)(AuthenticatedComponent);
 }

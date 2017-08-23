@@ -6,7 +6,6 @@ const filePath = '../../Images/';
 export default class FilmItem extends Component {
     constructor (props) {
         super(props);
-        //this.props = props;
     }
 
     render() {

@@ -2,27 +2,21 @@
 import NavLink from '../../components/NavLink'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as AuthActions from '../../actions/AuthActions';
+import * as UserActions from '../../actions/UserActions';
 
 class NavigationBar extends Component{
     constructor (props) {
         super(props);
+        this.state = {
+            user: this.props.user
+        }
+        this.props.actions.setCurrentUser();
     }
 
     logout(e) {
         e.preventDefault();
         this.props.actions.logout();
     }
-
-    componentDidMount() {
-        console.log('componentDidMount - navbar');
-        this.props.actions.setCurrentUser();
-    }
-
-    //componentWillMount() {
-    //    console.log('componentWillMount - navbar');
-    //    this.props.actions.setCurrentUser();
-    //}
 
     render() {
        
@@ -39,6 +33,18 @@ class NavigationBar extends Component{
             </ul>
         );
 
+        let filmLink = null;
+
+        if (this.props.film) {
+            let filmName = this.props.film, 
+            link = '/film/' + filmName,
+            filnNameFirstLetter = filmName.charAt(0).toUpperCase() + filmName.substr(1);
+
+            filmLink = (
+                <NavLink to={link} className='navbar-text' onlyActiveOnIndex={true}>{filnNameFirstLetter}</NavLink> 
+            );
+        }
+       
         return (
             <div className='navbar navbar-default navbar-fixed-top'>
                 <div className='container'>
@@ -50,9 +56,10 @@ class NavigationBar extends Component{
                             <span className='icon-bar'></span>
                          </button>
                          <NavLink to='/' className='navbar-text' onlyActiveOnIndex={true}> Films Gallery</NavLink>
+                         {filmLink || null}
                    </div>
                    <div className='navbar-collapse collapse navbar-right'>
-                      {this.props.user.isAuthenticated ? userLinks :guestLinks }
+                      {this.props.user.isAuthenticated ? userLinks : guestLinks }
                    </div>
                </div>
             </div>
@@ -62,15 +69,14 @@ class NavigationBar extends Component{
 
 function mapStateToProps(state) {
     return {
-        user: state.user,
-        auth: state.auth.isAuthenticated
+        user: state.user
     };
 }
   
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(AuthActions, dispatch)
+        actions: bindActionCreators(UserActions, dispatch)
     }
 }
 

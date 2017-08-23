@@ -4,7 +4,7 @@
   "description": "React-router RU tutorial",
   "main": "index.js",
   "scripts": {
-    "start": "node bin/server.js"
+    "start": "node bin/server.js --history-api-fallback"
   },
   "author": "Anastasiya Kislach",
   "license": "MIT",

@@ -1,37 +1,36 @@
-﻿/// <reference path='../../actions/FetctAction.js' />
-import React, { Component } from 'react';
+﻿import React, { Component } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as FetchActions from '../../actions/FetchActions';
-import '../../app_data/films.json';
 import FilmItem from '../../components/FilmItem'
 
 class List extends Component {
     constructor (props) {
         super(props);
+        this.props.actions.getFilms();
         this.state = {
+            user: this.props.user,
             films: this.props.films
         }
+        this.filterList = this.filterList.bind(this);
     }
 
     filterList(e) {
         var filteredList = this.props.films.filter(function(item){
             return item.name.toLowerCase().search(e.target.value.toLowerCase())!== -1;
         });
-        // обновление состояния
+       
         this.setState({films: filteredList});
     }
 
     render() {
-        //this.props.actions.ajaxRequestFunction();
-
-        var data = this.state.films;
-        var filmsTemplate;
-
+        let data = this.props.films,
+        filmsTemplate = null;
+     
         if (data.length > 0) {
             filmsTemplate = data.map(function(item, index) {
                 return (
-                    <FilmItem data={item} key={index}/>
+                    <FilmItem data={item} key={index} />
                     );
             });
         }
@@ -43,7 +42,7 @@ class List extends Component {
                          <div className='container-1'>
                              <span className='icon'>
                              <i className='glyphicon glyphicon-search'></i></span>
-                             <input type='search' placeholder='Search...' className='search-input form-control' onChange={::this.filterList}/>
+                             <input type='search' placeholder='Search...' className='search-input form-control' onChange={this.filterList.bind(this)}/>
                          </div>
                      </div>
                      <div className='col-md-4'>
@@ -52,19 +51,18 @@ class List extends Component {
                          </select>
                      </div>
                  </div>
-                    <div className='films-container'>  
-                        {filmsTemplate}
-                    </div>
-                </div>
+                 <div className='films-container'>  
+                    { filmsTemplate }
+                 </div>
+            </div>
         );
     }
 }
 
 function mapStateToProps(state) {
     return {
-        //user: state.user.email,
-        films: state.fetch.data,
-        auth: state.auth.isAuthenticated
+        user: state.user.email,
+        films: state.fetch.films
     }
 }
 

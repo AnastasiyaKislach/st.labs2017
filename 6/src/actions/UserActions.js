@@ -4,12 +4,14 @@ import {
     LOGIN_REQUEST,
     LOGIN_FAIL,
     LOGIN_SUCCESS,
-    LOGOUT_SUCCESS
+    LOGOUT_SUCCESS,
+    SET_CURRENT_USER
 } from '../constants/User'
 
 import {
     ROUTING
     } from '../constants/Routing'
+
 
 export function login(payload) {
     return (dispatch) => {
@@ -63,16 +65,19 @@ export function login(payload) {
     }
 }
 
-
 export function logout() {
-    (dispatch) => {
-
-        dispatch({
-            type: LOGOUT_SUCCESS
-        });
+    return (dispatch) => {
 
         localStorage.removeItem('currentUser');
         
+        dispatch({
+            type: LOGOUT_SUCCESS,
+            payload: {
+                email: '',
+                isAuthenticated: false
+            }
+        });
+
         dispatch({
             type: ROUTING,
             payload: {
@@ -84,4 +89,36 @@ export function logout() {
     }
 }
 
+export function setCurrentUser() {
+    return (dispatch) => {
+
+        var currentUser = localStorage.getItem('currentUser');
+
+        if (currentUser) {
+
+            var user = JSON.parse(currentUser);
+            
+            dispatch({
+                type: SET_CURRENT_USER,
+                payload: {
+                    email: user.email,
+                    isAuthenticated: true
+                }
+            });
+           
+        }
+    }
+}
+
+export function routing() {
+    return (dispatch) => {
+        dispatch({
+            type: ROUTING,
+            payload: {
+                method: 'replace',
+                nextUrl: '/login'
+            }
+        });
+    }
+}
 /* eslint-enable no-unused-vars */

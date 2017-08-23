@@ -12,7 +12,7 @@ export const routes = (
   <div>
     <Route path='/' component={App}>
         <IndexRoute component={requireAuthentication(List)} />
-        <Route path='/film/:film' component={Film}></Route>
+        <Route path='/film/:film' component={requireAuthentication(Film)}></Route>
         <Route path='/login' component={LoginPage} />
     </Route>
     <Route path='*' component={NotFound} />

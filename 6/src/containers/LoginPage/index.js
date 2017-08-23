@@ -6,6 +6,15 @@ import * as UserActions from '../../actions/UserActions';
 import '../../styles/styles.scss';
 
 export class LoginPage extends Component {
+    constructor (props) {
+        super(props);
+        this.state = {
+            user: this.props.user
+        }
+        this.props.actions.setCurrentUser();
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         this.props.actions.login({
@@ -16,7 +25,7 @@ export class LoginPage extends Component {
     render() {
         return (
             <div>
-              <form className='form-login form-horizontal'  onSubmit={::this.handleSubmit}>
+              <form className='form-login form-horizontal'  onSubmit={this.handleSubmit}>
                   <h4>Log in to Film Gallery</h4>
                   <hr />
                   <div className='form-group'>
@@ -36,7 +45,7 @@ export class LoginPage extends Component {
 
 function mapStateToProps(state) {
     return {
-        auth: state.auth.isAuthenticated
+        user: state.user
     }
 }
 
