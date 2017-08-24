@@ -1,4 +1,4 @@
-﻿import React, { Component } from 'react';
+﻿import React, { Component, PropTypes } from 'react';
 
 import NavLink from '../../components/NavLink';
 const filePath = '../../Images/';
@@ -29,3 +29,12 @@ export default class FilmItem extends Component {
         );
     }
 }
+
+FilmItem.propTypes = {
+    data: PropTypes.shape({
+        id: PropTypes.string.isRequired, 
+        name: PropTypes.string.isRequired,
+        poster: PropTypes.string.isRequired,
+        gallery: PropTypes.array.isRequired
+    })
+};

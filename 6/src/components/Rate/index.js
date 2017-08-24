@@ -1,21 +1,29 @@
 ﻿
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import {changeRating} from '../../actions/FetchActions';
+
 import Star from '../Star'
 
-
-export default class Rate extends Component {
+class Rate extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            count: 5,
+            count: 10,
             marked: 0
         }
         this.rateHandler = this.rateHandler.bind(this);
     }
 
+    componentDidMount() {
+        this.setState({
+            marked: this.props.marked
+        });
+    }
+
     componentWillReceiveProps(nextProps) {
         this.setState({
-            count: nextProps.count,
             marked: nextProps.marked
         });
     }
@@ -24,6 +32,14 @@ export default class Rate extends Component {
         this.setState({
             marked: index
         });
+
+        let rate = {
+            filmId: this.props.filmId,
+            user: this.props.user,
+            rate: index
+        }
+
+        this.props.actions.changeRating(rate);
     }
 
     render() {
@@ -38,13 +54,30 @@ export default class Rate extends Component {
                 isMarked = true;
             }
             starTemplate.push(<Star index={i} key={i} isMarked={isMarked} changeRate={this.rateHandler}/>);
-        }
+    }
        
-        return(
-             <div className='film-rate'>
-                {starTemplate}
-            </div>
+    return(
+         <div className='film-rate'>
+    {starTemplate}
+        </div>
         );
     }
 }
 
+function mapStateToProps() {
+    return {}
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators({changeRating}, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Rate)
+
+
+
+Rate.propTypes = {
+    marked: PropTypes.number
+}

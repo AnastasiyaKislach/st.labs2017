@@ -1,5 +1,5 @@
 ﻿
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 
 export default class Star extends Component {
@@ -41,3 +41,8 @@ export default class Star extends Component {
     }
 }
 
+Star.propTypes = {
+    index: PropTypes.number.isRequired, 
+    isMarked: PropTypes.bool,
+    changeRate: PropTypes.func
+};

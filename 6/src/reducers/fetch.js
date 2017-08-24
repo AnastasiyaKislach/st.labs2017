@@ -7,9 +7,9 @@
     GET_FILM_ERROR,
     CREATE_COMMENT_SUCCESS,
     GET_COMMENTS_REQUEST,
-    GET_COMMENTS_SUCCESS
+    GET_COMMENTS_SUCCESS,
+    CHANGE_RATING
 } from '../constants/Fetch'
-
 
 const initialState = {
     films: [],
@@ -48,6 +48,9 @@ export default function appActions(state = initialState, action) {
 
         case GET_COMMENTS_SUCCESS:
             return {...state, comments: action.payload.comments}
+
+        case CHANGE_RATING:
+            return {...state, rating: action.payload.newRate}
 
         default:
             return state;

@@ -1,4 +1,4 @@
-﻿import React, { Component } from 'react';
+﻿import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as FetchActions from '../../actions/FetchActions';
@@ -47,7 +47,7 @@ class Film extends Component {
                         <div className='film-poster'>
                             <img src={posterPath} className='img-responsive' />
                         </div>
-                       <Rate count={10} marked={this.props.film.rate}/>
+                       <Rate marked={this.props.film.rate} filmId={this.props.film.id} user={this.props.user.email}/>
                     </div>
                     <div className='film-title col-md-8'>
                         <h3>Maecenas etos sit amet</h3>
@@ -56,7 +56,7 @@ class Film extends Component {
                 </div>
 
                 <Gallery photos={this.props.film.gallery} filmName={this.props.film.name}/>
-               <CommentContainer comments={this.props.film.comments} filmId={this.props.film.id} user={'sdf'}/>
+               <CommentContainer comments={this.props.film.comments} filmId={this.props.film.id} user={this.props.user.email}/>
 
             </div>
         );
@@ -76,3 +76,16 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Film)
+
+Film.propTypes = {
+    user: PropTypes.shape({
+        email: PropTypes.string.isRequired,
+        isAuthenticated: PropTypes.bool.isRequired
+    }),
+    film: PropTypes.shape({
+        id: PropTypes.string, 
+        name: PropTypes.string,
+        poster: PropTypes.string,
+        gallery: PropTypes.array
+    })
+};

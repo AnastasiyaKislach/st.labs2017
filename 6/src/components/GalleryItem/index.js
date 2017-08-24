@@ -1,5 +1,5 @@
 ﻿
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 export default class GalleryItem extends Component {
     constructor(props) {
@@ -14,3 +14,6 @@ export default class GalleryItem extends Component {
     }
 }
 
+GalleryItem.propTypes = {
+    src: PropTypes.string.isRequired
+};

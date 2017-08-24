@@ -1,5 +1,5 @@
 ﻿
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import GalleryItem from '../../components/GalleryItem'
 
 const filePath = '../../Images/';
@@ -33,8 +33,6 @@ export default class Gallery extends Component {
                 end: this.state.end - 1
             });
         }
-        
-        console.log('Prev click!');
     }
 
     next() {
@@ -44,7 +42,6 @@ export default class Gallery extends Component {
                 end: this.state.end + 1
             });
         }
-        console.log('Next click!');
     }
 
     render() {
@@ -87,3 +84,6 @@ export default class Gallery extends Component {
     }
 }
 
+Gallery.propTypes = {
+    photos: PropTypes.array
+};

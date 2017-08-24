@@ -1,4 +1,4 @@
-﻿import React, { Component } from 'react';
+﻿import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as FetchActions from '../../actions/FetchActions';
@@ -73,3 +73,9 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(List)
+
+
+List.propTypes = {
+    films: PropTypes.array.isRequired,
+    user:PropTypes.string.isRequired
+};

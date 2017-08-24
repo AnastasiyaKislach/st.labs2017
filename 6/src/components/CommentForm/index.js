@@ -1,5 +1,5 @@
 ﻿
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 export default class CommentForm extends Component {
     constructor(props) {
@@ -17,8 +17,7 @@ export default class CommentForm extends Component {
         let comment = {
             filmId: this.props.filmId,
             user: this.props.user,
-            text: e.target.elements[1].value,
-            dataTime: '10.12.12'
+            text: e.target.elements[1].value
         };
         
         this.props.addComment(comment);
@@ -57,5 +56,8 @@ export default class CommentForm extends Component {
 
 }
 
-
-
+CommentForm.propTypes = {
+    user: PropTypes.string.isRequired,
+    filmId: PropTypes.string,
+    addComment: PropTypes.func.isRequired
+};

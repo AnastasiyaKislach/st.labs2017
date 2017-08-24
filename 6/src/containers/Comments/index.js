@@ -1,5 +1,5 @@
 ﻿
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as FetchActions from '../../actions/FetchActions';
@@ -47,9 +47,7 @@ class CommentContainer extends Component {
 
 }
 function mapStateToProps() {
-    return {
-       
-    }
+    return {}
 }
 
 function mapDispatchToProps(dispatch) {
@@ -59,3 +57,11 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CommentContainer)
+
+
+
+CommentContainer.propTypes = {
+    comments: PropTypes.array,
+    filmId: PropTypes.string,
+    user: PropTypes.string.isRequired
+};

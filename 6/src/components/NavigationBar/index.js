@@ -1,4 +1,4 @@
-﻿import React, { Component } from 'react'
+﻿import React, { Component, PropTypes } from 'react'
 import NavLink from '../../components/NavLink'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -81,3 +81,11 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavigationBar);
+
+NavigationBar.propTypes = {
+    film: React.PropTypes.string,
+    user: PropTypes.shape({ 
+        email: React.PropTypes.string.isRequired,
+        isAuthenticated: React.PropTypes.bool.isRequired
+    })
+};

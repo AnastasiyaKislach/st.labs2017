@@ -1,4 +1,4 @@
-﻿import React, { Component } from 'react';
+﻿import React, { Component, PropTypes } from 'react';
 
 export default class CommentItem extends Component {
     constructor (props) {
@@ -22,4 +22,10 @@ export default class CommentItem extends Component {
             </div>
         );
     }
+}
+
+CommentItem.propTypes = {
+    user: PropTypes.string.isRequired, 
+    dataTime: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired
 }
