@@ -14,6 +14,7 @@ export default class FilmItem extends Component {
         const description = this.props.data.description;
         const posterPath = filePath + this.props.data.name + '/' + this.props.data.poster;
         const routePath = '/film/' + name.toLowerCase();
+        const rate = this.props.data.rate;
 
         return (
             <div className='film-item' id= { id } >
@@ -21,8 +22,9 @@ export default class FilmItem extends Component {
                     <img src={posterPath} className='img-responsive' />
                 </div>
                 <div className='film-title col-md-10'>
-                    <h3>{name}</h3>
+                    <NavLink to={routePath}><h3>{name}</h3></NavLink>
                     <p>{description}</p>
+                    <p>Rating: {rate}</p>
                     <NavLink to={routePath}>More >></NavLink>
                 </div>
             </div>

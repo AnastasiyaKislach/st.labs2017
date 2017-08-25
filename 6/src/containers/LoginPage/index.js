@@ -3,8 +3,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UserActions from '../../actions/UserActions';
 
-import '../../styles/styles.scss';
-
 export class LoginPage extends Component {
     constructor (props) {
         super(props);

@@ -16,6 +16,11 @@ export function getFilms() {
                 errors: 'Нет данных'
             });
         }
+
+        data.forEach(function(item) {
+            item.rate = calcRating(item.id) || 0;
+        });
+
         dispatch({
             type: ActionsType.GET_FILMS_SUCCESS,
             payload: {

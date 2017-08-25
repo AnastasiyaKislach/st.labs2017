@@ -30,14 +30,6 @@ class Film extends Component {
         return differentComments;
     }
 
-    shouldComponentUpdate(nextProps) {
-        const differentComments = this.props.film !== nextProps.film;
-        if (differentComments) {
-            this.setState({film: nextProps.film});
-        }
-      
-        return differentComments;
-    }
     render() {
         const posterPath = filePath + this.props.film.name + '/' + this.props.film.poster;
         return (

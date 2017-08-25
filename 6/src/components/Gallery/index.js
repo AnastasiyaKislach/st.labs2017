@@ -19,7 +19,7 @@ export default class Gallery extends Component {
         this.prev = this.prev.bind(this);
         this.next = this.next.bind(this);
     }
-
+    
     componentWillReceiveProps(nextProps) {
         this.setState({
             total: nextProps.photos.length

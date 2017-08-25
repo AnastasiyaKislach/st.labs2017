@@ -11,15 +11,19 @@ export default class CommentList extends Component {
         }
     }
     
-    shouldComponentUpdate(nextProps) {
-        const differentComments = this.props.comments !== nextProps.comments;
-        if (differentComments) {
-            this.setState({comments: nextProps.comments});
-        }
-      
-        return differentComments;
+    
+    componentDidMount() {
+        this.setState({
+            comments: this.props.comments
+        });
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            comments: nextProps.comments
+        });
+    }
+    
     render() {
         let comments = this.props.comments,
             commentsTemplate;
