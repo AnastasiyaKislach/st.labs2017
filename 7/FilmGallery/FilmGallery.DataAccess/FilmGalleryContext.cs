@@ -13,6 +13,10 @@ namespace FilmGallery.DataAccess {
 		}
 		public FilmGalleryContext(string connectionString)
 			: base(connectionString) {
+			Database.SetInitializer(new MigrateDatabaseToLatestVersion<FilmGalleryContext, Migrations.Configuration>(connectionString));
+		}
+		protected override void OnModelCreating(DbModelBuilder modelBuilder) {
+			base.OnModelCreating(modelBuilder);
 		}
 		public static FilmGalleryContext Create() {
 			return new FilmGalleryContext();
