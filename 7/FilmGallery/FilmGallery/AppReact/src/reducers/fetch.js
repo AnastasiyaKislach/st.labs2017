@@ -39,15 +39,12 @@ export default function appActions(state = initialState, action) {
         case GET_FILM_ERROR: 
             return {...state}
 
-        case CREATE_COMMENT_SUCCESS:
-
-            var film = state.film;
-
+        case CREATE_COMMENT_SUCCESS:{
+            let film = state.film;
             film.Comments = [...film.Comments, action.payload.comment];
-
             state.film = { ...state.film };
-
             return {...state}
+        }
         
         case GET_COMMENTS_REQUEST:
             return {...state}
@@ -55,9 +52,13 @@ export default function appActions(state = initialState, action) {
         case GET_COMMENTS_SUCCESS:
             return {...state, comments: action.payload.comments}
 
-        case CHANGE_RATING:
-            return {...state, rating: action.payload.newRate}
-
+        case CHANGE_RATING:{
+            var film = state.film;
+            film.Rating = action.payload.rating;
+            state.film = { ...state.film };
+            return {...state} 
+        }
+            
         default:
             return state;
     }

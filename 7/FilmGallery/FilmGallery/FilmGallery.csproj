@@ -151,6 +151,10 @@
       <HintPath>..\packages\MsieJavaScriptEngine.2.2.2\lib\net45\MsieJavaScriptEngine.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MvcValidationExtensions, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcValidationExtensions.1.1.4.0\lib\net45\MvcValidationExtensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -245,6 +249,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppReact\server\server.js" />
+    <Content Include="AppReact\src\components\Modal\index.js" />
+    <Content Include="AppReact\src\store\localStorage.js" />
     <Content Include="dist\89889688147bd7575d6327160d64e760.svg" />
     <Content Include="dist\bundle.css" />
     <Content Include="dist\bundle.js" />
@@ -321,6 +327,13 @@
     <Content Include="AppReact\src\sorting\sorting.js" />
     <Content Include="AppReact\src\store\cofigureStore.js" />
     <Content Include="AppReact\src\styles\styles.min.css" />
+    <Content Include="scripts\emailValidation\emailValidation.js" />
+    <None Include="scripts\jquery.validate-vsdoc.js" />
+    <Content Include="scripts\jquery.validate.js" />
+    <Content Include="scripts\jquery.validate.min.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="scripts\mvcvalidationextensions.unobtrusive.js" />
     <Content Include="webpack.config.js" />
     <Content Include="AppReact\webpack\dev.config.js" />
     <Content Include="AppReact\webpack\prod.config.js" />
@@ -386,8 +399,6 @@
     <Content Include="Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
@@ -428,8 +439,7 @@
     </Content>
     <Content Include="scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="scripts\jquery-3.1.1.min.map" />
-    <Content Include="Views\Account\Edit.cshtml" />
-    <Content Include="Views\Home\React.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <None Include="Web.Debug.config">

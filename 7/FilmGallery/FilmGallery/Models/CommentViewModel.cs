@@ -1,5 +1,4 @@
-﻿using System;
-using FilmGallery.Entities;
+﻿using FilmGallery.Entities;
 
 namespace FilmGallery.Models {
 	public class CommentViewModel {

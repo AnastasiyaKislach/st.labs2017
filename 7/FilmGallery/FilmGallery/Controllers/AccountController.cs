@@ -12,19 +12,17 @@ namespace FilmGallery.Controllers
     public class AccountController : Controller
     {
 		private ApplicationUserManager _userManager;
+		private ApplicationSignInManager _signInManager;
+
 
 		public AccountController() {
 		}
 
-		public AccountController(ApplicationUserManager userManager) {
+		public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager) {
 			UserManager = userManager;
-
+			SignInManager = signInManager;
 		}
-
-		public ActionResult Index() {
-		    return View(UserManager.Users);
-	    }
-
+		
 		public ActionResult GetCurrentUserName(){
 			string userName = User.Identity.Name;
 			return Json(userName, JsonRequestBehavior.AllowGet);
@@ -69,10 +67,10 @@ namespace FilmGallery.Controllers
 			    IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
 			    if (result.Succeeded) {
-				    return RedirectToAction("Index");
-			    } else {
-				    AddErrors(result);
+					await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+					return RedirectToAction("Index", "Home");
 			    }
+			    AddErrors(result);
 		    }
 		    return View(model);
 	    }
@@ -95,71 +93,15 @@ namespace FilmGallery.Controllers
 		    }
 	    }
 
-
-		public async Task<ActionResult> Edit(string id) {
-			ApplicationUser user = await UserManager.FindByIdAsync(id);
-			if (user != null) {
-				return View(user);
-			} else {
-				return RedirectToAction("Index");
+		public ApplicationSignInManager SignInManager {
+			get {
+				return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+			}
+			private set {
+				_signInManager = value;
 			}
 		}
 
-		[HttpPost]
-		public async Task<ActionResult> Edit(string id, string email, string password) {
-			ApplicationUser user = await UserManager.FindByIdAsync(id);
-			if (user != null) {
-				user.Email = email;
-				IdentityResult validEmail
-					= await UserManager.UserValidator.ValidateAsync(user);
-
-				if (!validEmail.Succeeded) {
-					AddErrors(validEmail);
-				}
-
-				IdentityResult validPass = null;
-				if (password != string.Empty) {
-					validPass = await UserManager.PasswordValidator.ValidateAsync(password);
-
-					if (validPass.Succeeded) {
-						user.PasswordHash =
-							UserManager.PasswordHasher.HashPassword(password);
-					} else {
-						AddErrors(validPass);
-					}
-				}
-
-				if ((validEmail.Succeeded && validPass == null) ||
-						(validEmail.Succeeded && password != string.Empty && validPass.Succeeded)) {
-					IdentityResult result = await UserManager.UpdateAsync(user);
-					if (result.Succeeded) {
-						return RedirectToAction("Index");
-					} else {
-						AddErrors(result);
-					}
-				}
-			} else {
-				ModelState.AddModelError("", "Пользователь не найден");
-			}
-			return View(user);
-		}
-
-		[HttpPost]
-		public async Task<ActionResult> Delete(string id) {
-			ApplicationUser user = await UserManager.FindByIdAsync(id);
-
-			if (user != null) {
-				IdentityResult result = await UserManager.DeleteAsync(user);
-				if (result.Succeeded) {
-					return RedirectToAction("Index");
-				} else {
-					return View("Error", result.Errors);
-				}
-			} else {
-				return View("Error", new string[] { "Пользователь не найден" });
-			}
-		}
-		
 		private void AddErrors(IdentityResult result) {
 		    foreach (var error in result.Errors) {
 			    ModelState.AddModelError("", error);

@@ -1,4 +1,6 @@
-﻿namespace FilmGallery.Models {
+﻿using FilmGallery.Entities;
+
+namespace FilmGallery.Models {
 	public class RatingViewModel {
 		public int Id { get; set; }
 
@@ -12,10 +14,11 @@
 
 		}
 
-		public RatingViewModel(RatingViewModel rating){
+		public RatingViewModel(Rating rating){
 			Id = rating.Id;
 			FilmId = rating.FilmId;
 			Rate = rating.Rate;
+			UserId = rating.UserId;
 		}
 	}
 }

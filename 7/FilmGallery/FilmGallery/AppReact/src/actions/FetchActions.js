@@ -1,6 +1,4 @@
-﻿//import data from '../app_data/films';
-import * as ActionsType from '../constants/Fetch'
-//import moment from 'moment';
+﻿import * as ActionsType from '../constants/Fetch';
 import $ from 'jQuery';
 
 export function getFilms() {
@@ -25,44 +23,15 @@ export function getFilms() {
                 }
             });
         })
-        .fail(function() {
+        .fail(function(response) {
+                console.log(response);
             dispatch({
                 type: ActionsType.GET_FILMS_ERROR,
                 payload: {},
                 errors: 'Нет данных'
             });
         });
-
-        //if (!films) {
-        //    dispatch({
-        //        type: ActionsType.GET_FILMS_ERROR,
-        //        payload: {},
-        //        errors: 'Нет данных'
-        //    });
-        //    return;
-        //}
-
-        //films.forEach(function(item) {
-        //    item.rate = calcRating(item.id) || 0;
-        //});
-
-      
     }
-}
-
-function calcRating(filmId) {
-    let rates = JSON.parse(localStorage.getItem('rating')) || [];
-    let rate = 0, count = 0;
-    if (rates && rates.length) {
-        for (let i = 0 ; i < rates.length; i++) {
-            if (rates[i].filmId == filmId) {
-                rate += rates[i].rate;
-                count += 1;
-            }
-        }
-        rate = Math.round(rate/count);
-    }
-    return rate;
 }
 
 export function getFilmComments(filmId) {
@@ -114,51 +83,12 @@ export function getFilm(name) {
                 errors: 'Нет данных'
             });
         });
-
-
-        //let film = data.find(function(item) {
-        //    if (item.name.toLowerCase() === name.toLowerCase()) {
-        //        return item;
-        //    }
-        //    return undefined;
-        //});
-
-        //film.comments = getFilmComments(film.id);
-        //film.rate = calcRating(film.id);
-
-        //dispatch({
-        //    type: ActionsType.GET_FILM_SUCCESS,
-        //    payload: {
-        //        film: film
-        //    }
-        //});
     }
 }
 
-//export function createComment(comment) {
-//    return (dispatch) => {
-
-//        let comments = JSON.parse(localStorage.getItem('comments')) || [];
-
-//        comment.dataTime = moment(new Date()).format('MMM Do YYYY hh:mm');
-        
-//        comments = comments.concat(comment);
-
-//        localStorage.setItem('comments', JSON.stringify(comments));
-            
-//        dispatch({
-//            type: ActionsType.CREATE_COMMENT_SUCCESS,
-//            payload: {
-//                comment: comment
-//            }
-//        });
-      
-//    }
-//}
-
 export function createComment(comment) {
     return (dispatch) => {
-        let newComment = $.param(comment);
+        let newComment;
         $.ajax({
             url: '/Comment/Create',
             type: 'POST',
@@ -186,37 +116,26 @@ export function createComment(comment) {
     }
 }
 
-
-export function changeRating(rate) {
+export function changeRating(rating) {
     return (dispatch) => {
-        let rates = JSON.parse(localStorage.getItem('rating')) || [],
-            rateFilm = null;
-       
-        if (rates && rates.length) {
-            rateFilm = rates.find(function(item) {
-                if (item.filmId == rate.filmId && item.user === rate.user) {
-                    item.rate = rate.rate;
-                    return item;
+        let newRating;
+        $.ajax({
+            url: '/Rating/ChangeRating',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(rating)
+        })
+        .done(function(response) {
+            newRating = response;
+            dispatch({
+                type: ActionsType.CHANGE_RATING,
+                payload: {
+                    rating: newRating
                 }
             });
-        }
-        if (!rateFilm) {
-            rates.push({
-                user: rate.user,
-                filmId: rate.filmId,
-                rate: rate.rate
-            });
-        }
-
-        let newRate = calcRating(rate.filmId);
-
-        localStorage.setItem('rating', JSON.stringify(rates));
-
-        dispatch({
-            type: ActionsType.CHANGE_RATING,
-            payload: {
-                rating: newRate
-            }
+        })
+        .fail(function(response) {
+            console.log(response);
         });
     }
 }

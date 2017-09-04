@@ -8,7 +8,7 @@ namespace FilmGallery.Models
     {
         [Required]
         [Display(Name = "Email")]
-        [EmailRegex]
+        [EmailRegex("Invalid email address. Email should ends with tut.by")]
         public string Email { get; set; }
 
         [Required]
@@ -20,7 +20,7 @@ namespace FilmGallery.Models
     public class RegisterViewModel
     {
         [Required]
-        [EmailRegex]
+        [EmailRegex("Invalid email address. Email should ends with tut.by")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 

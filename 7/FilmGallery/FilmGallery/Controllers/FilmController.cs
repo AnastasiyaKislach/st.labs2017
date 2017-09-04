@@ -43,7 +43,7 @@ namespace FilmGallery.Controllers {
 			FilmViewModel vm = new FilmViewModel(model);
 			vm.Comments = model.Comments.Select(ToCommentViewModel).ToList();
 			vm.Images = model.Images.Select(ToImageViewModel).ToList();
-			vm.Rating = ratingService.GetRating(model.Id);
+			vm.Rating = ratingService.GetFilmRating(model.Id);
 			return vm;
 		}
 		

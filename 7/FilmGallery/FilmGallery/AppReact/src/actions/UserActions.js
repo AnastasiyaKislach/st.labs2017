@@ -14,79 +14,26 @@ import {
 
 import $ from 'jQuery';
 
-export function login(payload) {
-    return (dispatch) => {
-
-        if (!payload.email && !payload.password) {
-            dispatch({
-                type: LOGIN_FAIL
-            });
-            return;
-        }
-
-        dispatch({
-            type: LOGIN_REQUEST
-        });
-
-        var user = {
-            email:  payload.email,
-            password: payload.password
-        };
-
-       
-
-        var value = window.localStorage.getItem(user.email);
-        if (!value) {
-            window.localStorage.setItem(user.email, user.password);
-        }else if (value !== user.password) {
-            dispatch({
-                type: LOGIN_FAIL
-            });
-        }
-
-        window.localStorage.setItem('currentUser', JSON.stringify(user));
-        setTimeout(() => {
-            dispatch({
-                type: LOGIN_SUCCESS,
-                payload: {
-                    email: user.email,
-                    isAuthenticated: true
-                }
-            });
-
-            dispatch({
-                type: ROUTING,
-                payload: {
-                    method: 'replace',
-                    nextUrl: '/'
-                }
-            });
-        },
-            2000);
-    }
-}
-
 export function logout() {
     return (dispatch) => {
 
-        localStorage.removeItem('currentUser');
-        
-        dispatch({
-            type: LOGOUT_SUCCESS,
-            payload: {
-                email: '',
-                isAuthenticated: false
-            }
+        $.ajax({
+            url: '/Account/LogOff'
+        })
+        .done(function(response) {
+            console.log(response);
+            
+            dispatch({
+                type: LOGOUT_SUCCESS,
+                payload: {
+                    email: '',
+                    isAuthenticated: false
+                }
+            });
+        })
+        .fail(function(response) {
+            console.log(response);
         });
-
-        dispatch({
-            type: ROUTING,
-            payload: {
-                method: 'replace',
-                nextUrl: '/login'
-            }
-        });
-        
     }
 }
 

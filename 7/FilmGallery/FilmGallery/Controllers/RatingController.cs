@@ -6,24 +6,23 @@ using FilmGallery.Entities;
 using FilmGallery.Models;
 using Microsoft.AspNet.Identity;
 
-namespace FilmGallery.Controllers
-{
-    public class RatingController : Controller
-    {
+namespace FilmGallery.Controllers {
+	public class RatingController : Controller {
 		private IRatingService ratingService;
 
 		public RatingController(IRatingService ratingService) {
 			this.ratingService = ratingService;
 		}
 
-		public ActionResult GetFilmComments(int filmId) {
+		public ActionResult GetFilmRatings(int filmId) {
 			List<Rating> ratings = ratingService.GetAll().Where(i => i.FilmId == filmId).ToList();
 			return Json(ratings, JsonRequestBehavior.AllowGet);
 		}
 
-		public ActionResult Create(RatingViewModel viewModel) {
-			Rating createdRating = ratingService.Add(ToModel(viewModel));
-			return Json(createdRating, JsonRequestBehavior.AllowGet);
+		public ActionResult ChangeRating(RatingViewModel viewModel) {
+			Rating ratingModel = ToModel(viewModel);
+			int rating = ratingService.ChangeRating(ratingModel);
+			return Json(rating, JsonRequestBehavior.AllowGet);
 		}
 
 		private Rating ToModel(RatingViewModel viewModel) {

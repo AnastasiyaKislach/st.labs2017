@@ -29,17 +29,16 @@ class Rate extends Component {
     }
 
     rateHandler(index) {
-        this.setState({
-            marked: index
-        });
+        //this.setState({
+        //    marked: index
+        //});
 
-        let rate = {
-            filmId: this.props.filmId,
-            user: this.props.user,
-            rate: index
+        let rating = {
+            FilmId: this.props.filmId,
+            Rate: index
         }
 
-        this.props.actions.changeRating(rate);
+        this.props.actions.changeRating(rating);
     }
 
     render() {
