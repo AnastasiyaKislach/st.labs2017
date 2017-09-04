@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Linq.Expressions;
 using FilmGallery.BusinessLogic.Contracts;
 using FilmGallery.DataAccess.Contracts;
 
@@ -34,7 +35,7 @@ namespace FilmGallery.BusinessLogic {
 		public T Delete(int id) {
 			return repository.Delete(id);
 		}
-
+		
 		public void Dispose() {
 			Dispose(true);
 			GC.SuppressFinalize(this);

@@ -2,6 +2,7 @@
 
 namespace FilmGallery.BusinessLogic.Contracts {
 	public interface IRatingService : IDataService<Rating> {
-		int GetRating(int filmId);
+		int GetFilmRating(int filmId);
+		int ChangeRating(Rating rating);
 	}
 }
