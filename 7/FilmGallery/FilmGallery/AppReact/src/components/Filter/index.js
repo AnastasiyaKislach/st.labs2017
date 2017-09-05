@@ -26,7 +26,7 @@ export default class Filter extends Component {
             this.props.onChange(null, '');
         } else {
             var filteredList = this.state.list.filter(function(item) {
-                    return item.name.toLowerCase().search(e.target.value.toLowerCase()) !== -1;
+                    return item.Name.toLowerCase().search(e.target.value.toLowerCase()) !== -1;
             });
             this.props.onChange(filteredList, e.target.value);
         }

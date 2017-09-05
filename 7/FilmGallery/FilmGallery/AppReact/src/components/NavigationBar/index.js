@@ -27,20 +27,12 @@ class NavigationBar extends Component{
     }
 
     render() {
-       
         const userLinks = (
             <ul className='nav navbar-nav'>
                 <NavLink className='navbar-text'>{this.state.user.email}</NavLink>
-                <NavLink to='/login' className='navbar-text'  onClick={this.logout.bind(this)}>Logout</NavLink>
+                <NavLink to='/login' className='navbar-text' onClick={this.logout.bind(this)}>Logout</NavLink>
             </ul>
         );
-  
-        //const guestLinks = (
-        //    <ul className='nav navbar-nav'>
-        //        <NavLink to='/login' className='navbar-text' onlyActiveOnIndex={true}>Login</NavLink>
-        //    </ul>
-        //);
-
         let filmLink = null;
 
         if (this.props.film) {
@@ -64,11 +56,10 @@ class NavigationBar extends Component{
                             <span className='icon-bar'></span>
                          </button>
                          <NavLink to='/' className='navbar-brand' onlyActiveOnIndex={true}> Films Gallery</NavLink>
-                         {filmLink || null}
+                         {filmLink}
                    </div>
                    <div className='navbar-collapse collapse navbar-right'>
-                      
-                      {userLinks}
+                        {userLinks}
                    </div>
                </div>
             </div>
