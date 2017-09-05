@@ -10,7 +10,9 @@ import { saveState} from './store/localStorage';
 const store = configureStore();
 
 store.subscribe(() => {
-    saveState(store.getState());
+    let state = store.getState();
+    console.log('state: ' + state);
+    saveState(state);
 });
 
 render(
