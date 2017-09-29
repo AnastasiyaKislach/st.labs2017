@@ -1,0 +1,20 @@
+﻿@using System.Web.Optimization
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>React</title>
+    @Scripts.Render("~/Scripts/react/react.min.js")
+    @Scripts.Render("~/Scripts/jquery-3.1.1.js")
+    @Styles.Render("~/dist/bundle.css")
+</head>
+<body>
+    <div id='root'></div>
+    <script src="~/dist/bundle.js"></script>
+</body>
+</html>
