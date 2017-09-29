@@ -7,6 +7,8 @@ namespace FilmGallery.DataAccess.Contracts {
 		IRepository<Comment> Comments { get; }
 		IRepository<Rating> Ratings { get; }
 		IRepository<Image> Images { get; }
+		IRepository<User> Users { get; }
 		IRepository<T> GetRepository<T>() where T : class;
+		void Save();
 	}
 }

@@ -4,12 +4,13 @@ using FilmGallery.DataAccess.Contracts;
 using FilmGallery.Entities;
 
 namespace FilmGallery.DataAccess {
-	public class UnitOfWork : IUnitOfWork{
+	public class UnitOfWork : IUnitOfWork {
 		private readonly FilmGalleryContext context;
 		private IRepository<Film> _films;
 		private IRepository<Comment> _comments;
 		private IRepository<Rating> _ratings;
 		private IRepository<Image> _images;
+		private IRepository<User> _users;
 
 		private bool disposed;
 		public UnitOfWork(string connectionString) {
@@ -31,19 +32,23 @@ namespace FilmGallery.DataAccess {
 				return _ratings ?? (_ratings = new BaseRepository<Rating>(context));
 			}
 		}
-		
+
 		public IRepository<Image> Images {
 			get {
 				return _images ?? (_images = new BaseRepository<Image>(context));
 			}
 		}
-		public virtual IRepository<T> GetRepository<T>() where T : class
-		{
+		public IRepository<User> Users {
+			get {
+				return _users ?? (_users = new BaseRepository<User>(context));
+			}
+		}
+		public virtual IRepository<T> GetRepository<T>() where T : class {
 			var property = GetType().GetProperties().FirstOrDefault(i => i.PropertyType == typeof(IRepository<T>));
 
 			return (IRepository<T>)property.GetValue(this);
 		}
-	
+
 		public void Dispose() {
 			Dispose(true);
 			GC.SuppressFinalize(this);
@@ -55,6 +60,10 @@ namespace FilmGallery.DataAccess {
 				}
 				disposed = true;
 			}
+		}
+
+		public void Save() {
+			context.SaveChanges();
 		}
 
 		public static UnitOfWork Create() {

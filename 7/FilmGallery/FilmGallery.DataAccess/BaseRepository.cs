@@ -14,13 +14,11 @@ namespace FilmGallery.DataAccess {
 
 		public virtual T Create(T item) {
 			Items.Add(item);
-			dbContext.SaveChanges();
 			return item;
 		}
 
 		public virtual T Update(T item) {
 			dbContext.Entry(item).State = EntityState.Modified;
-			dbContext.SaveChanges();
 			return item;
 		}
 
@@ -28,7 +26,6 @@ namespace FilmGallery.DataAccess {
 			T item = Items.Find(id);
 			if (item != null) {
 				Items.Remove(item);
-				dbContext.SaveChanges();
 			}
 			return item;
 		}

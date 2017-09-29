@@ -1,12 +1,14 @@
 ﻿using System.Data.Entity;
 using FilmGallery.Entities;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace FilmGallery.DataAccess {
-	public class FilmGalleryContext: DbContext {
+	public class FilmGalleryContext: IdentityDbContext {
 		public DbSet<Film> Films { get; set; }
 		public DbSet<Comment> Comments { get; set; }
 		public DbSet<Rating> Ratings { get; set; }
 		public DbSet<Image> Images { get; set; }
+		public DbSet<User> Users { get; set; }
 
 		public FilmGalleryContext()
 			: this("DBConnection") {
