@@ -418,6 +418,7 @@
     <Compile Include="Controllers\RatingController.cs" />
     <Compile Include="DependencyResolver\BusinessModule .cs" />
     <Compile Include="DependencyResolver\DataAccessModule.cs" />
+    <Compile Include="DependencyResolver\DbContextModule.cs" />
     <Compile Include="DependencyResolver\NinjectDependencyResolver.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

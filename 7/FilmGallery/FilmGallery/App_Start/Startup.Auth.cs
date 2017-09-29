@@ -1,10 +1,8 @@
-﻿using System;
+﻿using FilmGallery.DataAccess;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
-using FilmGallery.Models;
 
 namespace FilmGallery
 {
@@ -12,7 +10,7 @@ namespace FilmGallery
     {
        public void ConfigureAuth(IAppBuilder app)
         {
-            app.CreatePerOwinContext(ApplicationDbContext.Create);
+            app.CreatePerOwinContext(FilmGalleryContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
 			app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
 

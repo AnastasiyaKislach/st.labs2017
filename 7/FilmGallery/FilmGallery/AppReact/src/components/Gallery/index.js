@@ -24,7 +24,8 @@ export default class Gallery extends Component {
     componentDidMount() {
         this.setState({
             photos: this.props.photos,
-            filmName: this.props.filmName
+            filmName: this.props.filmName,
+            end: this.props.photos.length > 2 ? 3 : this.props.photos.length
         });  
     }
 
@@ -32,7 +33,8 @@ export default class Gallery extends Component {
         this.setState({
             photos: nextProps.photos,
             total: nextProps.photos ? nextProps.photos.length : 0,
-            filmName: nextProps.filmName
+            filmName: nextProps.filmName,
+            end: nextProps.photos.length > 2 ? 3 : nextProps.photos.length
         });
     }
 
@@ -46,7 +48,7 @@ export default class Gallery extends Component {
     }
 
     next() {
-        if (this.state.end !== this.state.total-1) {
+        if (this.state.end !== this.state.total) {
             this.setState({
                 start: this.state.start + 1,
                 end: this.state.end + 1

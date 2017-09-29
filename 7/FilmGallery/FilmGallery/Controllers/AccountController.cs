@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using FilmGallery.Entities;
 using FilmGallery.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -37,7 +38,7 @@ namespace FilmGallery.Controllers
 		[AllowAnonymous]
 		[ValidateAntiForgeryToken]
 		public async Task<ActionResult> Login(LoginViewModel details) {
-			ApplicationUser user = await UserManager.FindAsync(details.Email, details.Password);
+			User user = await UserManager.FindAsync(details.Email, details.Password);
 
 			if (user == null) {
 				ModelState.AddModelError("", "Некорректное имя или пароль.");
@@ -63,7 +64,7 @@ namespace FilmGallery.Controllers
 	    [HttpPost]
 	    public async Task<ActionResult> Register(RegisterViewModel model) {
 		    if (ModelState.IsValid) {
-			    ApplicationUser user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+				User user = new User { UserName = model.Email, Email = model.Email };
 			    IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
 			    if (result.Succeeded) {

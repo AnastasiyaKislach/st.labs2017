@@ -4,6 +4,8 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
+using FilmGallery.DataAccess;
+using FilmGallery.Entities;
 using FilmGallery.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -12,15 +14,15 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 
 namespace FilmGallery {
-	public class ApplicationUserManager : UserManager<ApplicationUser> {
-		public ApplicationUserManager(IUserStore<ApplicationUser> store)
+	public class ApplicationUserManager : UserManager<User> {
+		public ApplicationUserManager(IUserStore<User> store)
 			: base(store) {
 		}
 
 		public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) {
-			var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));
+			var manager = new ApplicationUserManager(new UserStore<User>(context.Get<FilmGalleryContext>()));
 			
-			manager.UserValidator = new UserValidator<ApplicationUser>(manager) {
+			manager.UserValidator = new UserValidator<User>(manager) {
 				AllowOnlyAlphanumericUserNames = false,
 				RequireUniqueEmail = true
 			};
@@ -49,12 +51,12 @@ namespace FilmGallery {
 	}
 
 
-	public class ApplicationSignInManager : SignInManager<ApplicationUser, string> {
+	public class ApplicationSignInManager : SignInManager<User, string> {
 		public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager)
 			: base(userManager, authenticationManager) {
 		}
 
-		public override Task<ClaimsIdentity> CreateUserIdentityAsync(ApplicationUser user) {
+		public override Task<ClaimsIdentity> CreateUserIdentityAsync(User user) {
 			return user.GenerateUserIdentityAsync((ApplicationUserManager)UserManager);
 		}
 
