@@ -24,7 +24,8 @@ namespace FilmGallery.DependencyResolver {
 		private void AddBindings() {
 			List<INinjectModule> modules = new List<INinjectModule> {
 				new DataAccessModule("DBConnection"),
-				new BusinessModule()
+				new BusinessModule(),
+				new DbContextModule()
 			};
 
 			kernel.Load(modules);
