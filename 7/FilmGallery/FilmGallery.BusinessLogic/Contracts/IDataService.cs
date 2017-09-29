@@ -8,7 +8,7 @@ namespace FilmGallery.BusinessLogic.Contracts
 	    T Add(T item);
 	    IQueryable<T> GetAll();
 	    T GetById(int id);
-	    T Edit(T item);
+	    T Update(T item);
 	    T Delete(int id);
     }
 }

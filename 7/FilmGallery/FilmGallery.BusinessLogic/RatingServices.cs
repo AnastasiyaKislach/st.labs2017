@@ -1,29 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using FilmGallery.BusinessLogic.Contracts;
 using FilmGallery.DataAccess.Contracts;
 using FilmGallery.Entities;
 
 namespace FilmGallery.BusinessLogic {
 	public class RatingService : DataService<Rating>, IRatingService {
-		private IUnitOfWork uow;
-
+	
 		public RatingService(IUnitOfWork uoWork)
 			: base(uoWork) {
-			this.uow = uoWork;
 		}
 
 		public int ChangeRating(Rating rating) {
-			Rating foundRating = uow.Ratings.GetAll().FirstOrDefault(i => i.FilmId == rating.FilmId && i.UserId == rating.UserId);
+			Rating foundRating = GetAll().FirstOrDefault(i => i.FilmId == rating.FilmId && i.UserId == rating.UserId);
 
 			int ratingValue = 0;
 
 			if (foundRating == null) {
-				uow.Ratings.Create(rating);
+				Add(rating);
 			} else {
 				foundRating.Rate = rating.Rate;
-				uow.Ratings.Update(foundRating);
+				Update(foundRating);
 			}
 			ratingValue = CalcFilmRating(rating.FilmId);
 			return ratingValue;
@@ -34,20 +30,9 @@ namespace FilmGallery.BusinessLogic {
 		}
 
 		private int CalcFilmRating(int filmId) {
-			List<Rating> ratings = uow.Ratings.GetAll().Where(i => i.FilmId == filmId).ToList();
+			double rating = GetAll().Where(i => i.FilmId == filmId).Average(i=>i.Rate);
 
-			if (ratings.Count <= 0) {
-				return 0;
-			}
-
-			int rating = 0;
-
-			foreach (var rate in ratings) {
-				rating += rate.Rate;
-			}
-			rating /= ratings.Count;
-
-			return rating;
+			return (int)rating;
 		}
 	}
 }
